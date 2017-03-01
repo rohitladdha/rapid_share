@@ -1,28 +1,24 @@
-
 <br />
-
 <%= link_to "New Doc", new_doc_path, class: "btn btn-primary" %>
-<br />
-<br />
+<br /> <br />
 
 <table class = "table table-bordered table-striped">
-   <thead>.
+  <thead>.
+    <tr>
+     <th>Name</th>
+     <th>Download Link</th>
+     <th> </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @docs.each do |doc| %>
       <tr>
-         <th>Name</th>
-         <th>Download Link</th>
-         <th> </th>
+        <td><%= doc.name %></td>
+        <td><%= link_to "Download Doc", doc.attachment_url, download: doc.name %></td>
+        <td><%= button_to "Delete",  doc, method: :delete, class: "btn btn-danger", data: {confirm: "Are you sure that you wish to delete #{doc.name}?"} %></td>
       </tr>
-   </thead>
-   
-   <tbody>
-      <% @docs.each do |doc| %>
-         <tr>
-            <td><%= doc.name %></td>
-            <td><%= link_to "Download Doc", doc.attachment_url, download: doc.name %></td>
-            <td><%= button_to "Delete",  doc, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{doc.name}?" %></td>
-         </tr>
-         
-      <% end %>
-   </tbody>
-   
+    <% end %>
+  </tbody>
+
 </table>

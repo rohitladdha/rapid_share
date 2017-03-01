@@ -38,7 +38,6 @@ gem 'carrierwave'
 # gem 'debugger', '~> 1.6.8'
 # gem 'pry'
 # gem 'pry-debugger'
-gem 'byebug'
   
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
